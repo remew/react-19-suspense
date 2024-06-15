@@ -3,6 +3,7 @@ import { ProfileWithFetch } from "~/components/ProfileWithFetch";
 import { ProfileSkeleton } from "~/components/ProfileSkeleton";
 import { ArticleDetailWithFetch } from "~/components/ArticleDetailWithFetch";
 import { ArticleDetailSkeleton } from "~/components/ArticleDetailSkeleton";
+import { VersionInfo } from "~/components/VersionInfo";
 
 type Props = {
   slug: string;
@@ -18,10 +19,15 @@ export default function Content({ slug }: Props) {
             <ArticleDetailWithFetch slug={slug} />
           </Suspense>
         </main>
-        <aside className="w-80 rounded bg-white p-4">
-          <Suspense fallback={<ProfileSkeleton />}>
-            <ProfileWithFetch />
-          </Suspense>
+        <aside className="flex flex-col gap-4">
+          <div className="w-80 rounded bg-white p-4">
+            <Suspense fallback={<ProfileSkeleton />}>
+              <ProfileWithFetch />
+            </Suspense>
+          </div>
+          <div className="w-80 rounded bg-white p-4">
+            <VersionInfo />
+          </div>
         </aside>
       </div>
     </main>

@@ -3,6 +3,7 @@ import { ProfileWithFetch } from "~/components/ProfileWithFetch";
 import { ArticleListWithFetch } from "~/components/ArticleListWithFetch";
 import { ProfileSkeleton } from "~/components/ProfileSkeleton";
 import { ArticleListSkeleton } from "~/components/ArticleListSkeleton";
+import { VersionInfo } from "~/components/VersionInfo";
 
 export default function Content() {
   return (
@@ -14,10 +15,15 @@ export default function Content() {
             <ArticleListWithFetch />
           </Suspense>
         </main>
-        <aside className="w-80 rounded bg-white p-4">
-          <Suspense fallback={<ProfileSkeleton />}>
-            <ProfileWithFetch />
-          </Suspense>
+        <aside className="flex flex-col gap-4">
+          <div className="w-80 rounded bg-white p-4">
+            <Suspense fallback={<ProfileSkeleton />}>
+              <ProfileWithFetch />
+            </Suspense>
+          </div>
+          <div className="w-80 rounded bg-white p-4">
+            <VersionInfo />
+          </div>
         </aside>
       </div>
     </main>

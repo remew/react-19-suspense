@@ -3,6 +3,7 @@ import { ArticleListSkeleton } from "~/components/ArticleListSkeleton";
 import { ProfileSkeleton } from "~/components/ProfileSkeleton";
 import { ArticleListWithFetch } from "~/components/ArticleListWithFetch";
 import { ProfileWithFetch } from "~/components/ProfileWithFetch";
+import { VersionInfo } from "~/components/VersionInfo";
 
 export default function Content() {
   return (
@@ -14,8 +15,13 @@ export default function Content() {
             <main className="flex-1 rounded bg-white p-4">
               <ArticleListSkeleton />
             </main>
-            <aside className="w-80 rounded bg-white p-4">
-              <ProfileSkeleton />
+            <aside className="flex flex-col gap-4">
+              <div className="w-80 rounded bg-white p-4">
+                <ProfileSkeleton />
+              </div>
+              <div className="w-80 rounded bg-white p-4">
+                <VersionInfo />
+              </div>
             </aside>
           </div>
         }
@@ -24,8 +30,13 @@ export default function Content() {
           <main className="flex-1 rounded bg-white p-4">
             <ArticleListWithFetch />
           </main>
-          <aside className="w-80 rounded bg-white p-4">
-            <ProfileWithFetch />
+          <aside className="flex flex-col gap-4">
+            <div className="w-80 rounded bg-white p-4">
+              <ProfileWithFetch />
+            </div>
+            <div className="w-80 rounded bg-white p-4">
+              <VersionInfo />
+            </div>
           </aside>
         </div>
       </Suspense>

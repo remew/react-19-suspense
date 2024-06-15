@@ -6,6 +6,7 @@ import { ProfileSkeleton } from "~/components/ProfileSkeleton";
 import { ArticleListSkeleton } from "~/components/ArticleListSkeleton";
 import { ArticleLite } from "~/data/articles";
 import { Profile as ProfileData } from "~/data/profile";
+import { VersionInfo } from "~/components/VersionInfo";
 
 let articlesPromise: Promise<Array<ArticleLite>>;
 let profilePromise: Promise<ProfileData>;
@@ -27,10 +28,15 @@ export default function Content() {
             <ArticleList articlesPromise={articlesPromise} />
           </Suspense>
         </main>
-        <aside className="w-80 rounded bg-white p-4">
-          <Suspense fallback={<ProfileSkeleton />}>
-            <Profile profilePromise={profilePromise} />
-          </Suspense>
+        <aside className="flex flex-col gap-4">
+          <div className="w-80 rounded bg-white p-4">
+            <Suspense fallback={<ProfileSkeleton />}>
+              <Profile profilePromise={profilePromise} />
+            </Suspense>
+          </div>
+          <div className="w-80 rounded bg-white p-4">
+            <VersionInfo />
+          </div>
         </aside>
       </div>
     </main>
